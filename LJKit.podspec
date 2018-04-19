@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "LJKit 是一个常用功能封装的工具库."
   s.description  = <<-DESC
+  TODO: Add long description of the pod here.
                    DESC
   s.homepage     = "https://github.com/lj20082/LJKit"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
