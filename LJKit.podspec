@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.ios.deployment_target = "8.0"
   s.source       = { :git => "https://github.com/lj20082/LJKit.git", :tag => s.version.to_s }
-  s.source_files  = "LJKit/Class/**/*"
+  s.source_files  = "Class/**/*"
   s.requires_arc = true
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
