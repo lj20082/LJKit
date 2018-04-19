@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "LJKit 是一个常用功能封装的工具库."
   s.description  = <<-DESC
-  TODO: Add long description of the pod here.
+                        LJKit是一个用于保存一些常用工具类的工具
                    DESC
   s.homepage     = "https://github.com/lj20082/LJKit"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -19,9 +19,8 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://muzijia.top/"
   s.platform     = :ios, "8.0"
   s.ios.deployment_target = "8.0"
-  s.source       = { :git => "https://github.com/lj20082/LJKit.git", :tag => "#{s.version}" }
-  s.source_files  = "LJKit", "LJKit/**/*.{h,m}"
-  s.exclude_files = "LJKit/Exclude"
+  s.source       = { :git => "https://github.com/lj20082/LJKit.git", :tag => s.version.to_s }
+  s.source_files  = "LJKit/Class/**/*"
   s.requires_arc = true
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
