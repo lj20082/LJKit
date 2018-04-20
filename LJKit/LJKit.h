@@ -8,5 +8,11 @@
 #ifndef LJKit_h
 #define LJKit_h
 
+#import "NSTimer+LJExtend.h"
+#import "UIImage+LJExtend.h"
+#import "UIImageView+LJExtend.h"
+#import "NSString+LJExtend.h"
+#import "NSData+LJExtend.h"
+#import "NSObject+LJExtend.h"
 
 #endif /* LJKit_h */
