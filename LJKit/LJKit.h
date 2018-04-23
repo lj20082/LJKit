@@ -13,5 +13,6 @@
 #import "NSString+LJExtend.h"
 #import "NSData+LJExtend.h"
 #import "NSObject+LJExtend.h"
+#import "LJMacroDefine.h"
 
 #endif /* LJKit_h */

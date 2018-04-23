@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "LJKit"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.summary      = "A powerful iOS utility framework."
   s.homepage     = "https://github.com/lj20082/LJKit"
@@ -27,6 +27,12 @@ Pod::Spec.new do |s|
     ss.ios.deployment_target = '8.0'
     ss.public_header_files = 'LJKit/Categorys/*.h'
     ss.source_files = 'LJKit/Categorys/*.{h,m}'
+  end
+  s.subspec 'Common' do |ss|
+    s.platform     = :ios, "8.0"
+    ss.ios.deployment_target = '8.0'
+    ss.public_header_files = 'LJKit/Common/*.h'
+    ss.source_files = 'LJKit/Common/*.{h,m}'
   end
   s.libraries = 'z'
   s.frameworks = 'UIKit', 'CoreFoundation' ,'QuartzCore', 'CoreGraphics', 'Accelerate'
