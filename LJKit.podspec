@@ -34,6 +34,12 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'LJKit/Common/*.h'
     ss.source_files = 'LJKit/Common/*.{h,m}'
   end
+   s.subspec 'Views' do |ss|
+    s.platform     = :ios, "8.0"
+    ss.ios.deployment_target = '8.0'
+    ss.public_header_files = 'LJKit/Views/*.h'
+    ss.source_files = 'LJKit/Views/*.{h,m}'
+  end
   s.libraries = 'z'
   s.frameworks = 'UIKit', 'CoreFoundation' ,'QuartzCore', 'CoreGraphics', 'Accelerate'
 end
