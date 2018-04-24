@@ -26,25 +26,29 @@
     UIGraphicsEndImageContext();
     return image;
 }
-- (UIImage *)lj_imageByRoundCornerRadius:(CGFloat)radius {
-    return [self lj_imageByRoundCornerRadius:radius borderWidth:0 borderColor:nil];
+
+- (nullable UIImage *)lj_imageBySize:(CGSize)size roundCornerRadius:(CGFloat)radius{
+    return [self lj_imageBySize:size roundCornerRadius:radius borderWidth:0 borderColor:nil];
 }
 
-- (UIImage *)lj_imageByRoundCornerRadius:(CGFloat)radius
-                          borderWidth:(CGFloat)borderWidth
-                          borderColor:(UIColor *)borderColor {
-    return [self lj_imageByRoundCornerRadius:radius
-                                  corners:UIRectCornerAllCorners
-                              borderWidth:borderWidth
-                              borderColor:borderColor
-                           borderLineJoin:kCGLineJoinMiter];
+- (nullable UIImage *)lj_imageBySize:(CGSize)size
+                   roundCornerRadius:(CGFloat)radius
+                         borderWidth:(CGFloat)borderWidth
+                         borderColor:(nullable UIColor *)borderColor {
+    return [self lj_imageBySize:size
+              roundCornerRadius:radius
+                        corners:UIRectCornerAllCorners
+                    borderWidth:borderWidth
+                    borderColor:borderColor
+                 borderLineJoin:kCGLineJoinMiter];
 }
 
-- (UIImage *)lj_imageByRoundCornerRadius:(CGFloat)radius
-                                 corners:(UIRectCorner)corners
-                             borderWidth:(CGFloat)borderWidth
-                             borderColor:(UIColor *)borderColor
-                          borderLineJoin:(CGLineJoin)borderLineJoin {
+- (nullable UIImage *)lj_imageBySize:(CGSize)size
+                   roundCornerRadius:(CGFloat)radius
+                             corners:(UIRectCorner)corners
+                         borderWidth:(CGFloat)borderWidth
+                         borderColor:(nullable UIColor *)borderColor
+                      borderLineJoin:(CGLineJoin)borderLineJoin {
     
     if (corners != UIRectCornerAllCorners) {
         UIRectCorner tmp = 0;
@@ -55,13 +59,13 @@
         corners = tmp;
     }
     
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
     CGContextScaleCTM(context, 1, -1);
     CGContextTranslateCTM(context, 0, -rect.size.height);
     
-    CGFloat minSize = MIN(self.size.width, self.size.height);
+    CGFloat minSize = MIN(size.width, size.height);
     if (borderWidth < minSize / 2) {
         UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, borderWidth, borderWidth) byRoundingCorners:corners cornerRadii:CGSizeMake(radius, borderWidth)];
         [path closePath];

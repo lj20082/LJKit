@@ -34,26 +34,30 @@
 /**
  图片圆角处理
 
+ @param size 目标size
  @param radius 圆角弧度
  @return 处理后的图片
  */
-- (nullable UIImage *)lj_imageByRoundCornerRadius:(CGFloat)radius;
+- (nullable UIImage *)lj_imageBySize:(CGSize)size roundCornerRadius:(CGFloat)radius;
 
 /**
  图片圆角、边框处理
 
+ @param size 目标size
  @param radius 圆角弧度
  @param borderWidth 边框宽度
  @param borderColor 边框颜色
  @return 处理后的图片
  */
-- (nullable UIImage *)lj_imageByRoundCornerRadius:(CGFloat)radius
-                                   borderWidth:(CGFloat)borderWidth
-                                   borderColor:(nullable UIColor *)borderColor;
+- (nullable UIImage *)lj_imageBySize:(CGSize)size
+                   roundCornerRadius:(CGFloat)radius
+                         borderWidth:(CGFloat)borderWidth
+                         borderColor:(nullable UIColor *)borderColor;
 
 /**
  图片圆角、边框处理 - 更多设置
 
+ @param size 目标size
  @param radius 圆角弧度
  @param corners 边框配置
  @param borderWidth 边框宽度
@@ -61,11 +65,12 @@
  @param borderLineJoin 连接类型
  @return 处理后的图片
  */
-- (nullable UIImage *)lj_imageByRoundCornerRadius:(CGFloat)radius
-                                       corners:(UIRectCorner)corners
-                                   borderWidth:(CGFloat)borderWidth
-                                   borderColor:(nullable UIColor *)borderColor
-                                borderLineJoin:(CGLineJoin)borderLineJoin;
+- (nullable UIImage *)lj_imageBySize:(CGSize)size
+                   roundCornerRadius:(CGFloat)radius
+                             corners:(UIRectCorner)corners
+                         borderWidth:(CGFloat)borderWidth
+                         borderColor:(nullable UIColor *)borderColor
+                      borderLineJoin:(CGLineJoin)borderLineJoin;
 
 /**
  左转 (90°). ⤺，宽高会交换
