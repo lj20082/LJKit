@@ -37,9 +37,11 @@
 #define LJ_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define LJ_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
-// rgb颜色转换（16进制->10进制）
-#define LJColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-#define LJRGBA(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
-#define LJRGB(R, G, B) LJRGBA(R,G,B,1.0f)
+// 获取颜色，从hex color，eg. 0xff1233
+#define LJColorHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+// 获取颜色，从R G B（范围为0-255），A(范围0-1)
+#define LJColorRGBA(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+// 获取颜色，从R G B,每位范围为0-255
+#define LJColorRGB(R, G, B) LJRGBA(R,G,B,1.0f)
 
 #endif /* LJMacroDefine_h */
