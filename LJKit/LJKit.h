@@ -13,6 +13,10 @@
 #import "NSString+LJExtend.h"
 #import "NSData+LJExtend.h"
 #import "NSObject+LJExtend.h"
+#import "NSDate+LJExtend.h"
+#import "UIView+LJExtend.h"
 #import "LJMacroDefine.h"
+#import "LJProgressView.h"
+#import "LJPopupView.h"
 
 #endif /* LJKit_h */

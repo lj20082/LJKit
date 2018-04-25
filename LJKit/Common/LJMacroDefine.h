@@ -39,6 +39,9 @@
 
 // 获取颜色，从hex color，eg. 0xff1233
 #define LJColorHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+// 获取颜色，从hex alpha color，eg. 0x00000080 黑色，50% alpha
+#define LJColorHexAlpha(rgbaValue) [UIColor colorWithRed:((float)((rgbaValue & 0xFF000000) >> 24))/255.0 green:((float)((rgbaValue & 0xFF0000) >> 16))/255.0 blue:((float)((rgbaValue & 0xFF00) >> 8))/255.0 alpha:((float)(rgbaValue & 0xFF))/255.0]
+
 // 获取颜色，从R G B（范围为0-255），A(范围0-1)
 #define LJColorRGBA(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 // 获取颜色，从R G B,每位范围为0-255
