@@ -22,23 +22,25 @@ Pod::Spec.new do |s|
   s.public_header_files = 'LJKit/LJKit.h'
   s.source_files = 'LJKit/LJKit.h'
 
-  s.subspec 'Categorys' do |ss|
-    s.platform     = :ios, "8.0"
-    ss.ios.deployment_target = '8.0'
-    ss.public_header_files = 'LJKit/Categorys/*.h'
-    ss.source_files = 'LJKit/Categorys/*.{h,m}'
+  s.subspec 'Categorys' do |s1|
+    s1.platform = :ios, "8.0"
+    s1.ios.deployment_target = '8.0'
+    s1.public_header_files = 'LJKit/Categorys/*.h'
+    s1.source_files = 'LJKit/Categorys/*.{h,m}'
   end
-  s.subspec 'Common' do |ss|
-    s.platform     = :ios, "8.0"
-    ss.ios.deployment_target = '8.0'
-    ss.public_header_files = 'LJKit/Common/*.h'
-    ss.source_files = 'LJKit/Common/*.{h,m}'
+  s.subspec 'Common' do |s2|
+    s2.platform = :ios, "8.0"
+    s2.ios.deployment_target = '8.0'
+    s2.public_header_files = 'LJKit/Common/*.h'
+    s2.source_files = 'LJKit/Common/*.{h,m}'
   end
-   s.subspec 'Views' do |ss|
-    s.platform     = :ios, "8.0"
-    ss.ios.deployment_target = '8.0'
-    ss.public_header_files = 'LJKit/Views/*.h'
-    ss.source_files = 'LJKit/Views/*.{h,m}'
+   s.subspec 'Views' do |s3|
+    s3.platform = :ios, "8.0"
+    s3.ios.deployment_target = '8.0'
+    s3.dependency 'LJKit/Categorys'
+    s3.dependency 'LJKit/Common'
+    s3.public_header_files = 'LJKit/Views/*.h'
+    s3.source_files = 'LJKit/Views/*.{h,m}'
   end
   s.libraries = 'z'
   s.frameworks = 'UIKit', 'CoreFoundation' ,'QuartzCore', 'CoreGraphics', 'Accelerate'
