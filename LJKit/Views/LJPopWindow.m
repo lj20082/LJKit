@@ -8,6 +8,7 @@
 
 #import "LJPopWindow.h"
 #import "UIView+LJExtend.h"
+#import "LJPopupView.h"
 
 @interface LJPopWindow ()<UIGestureRecognizerDelegate>
 @property (nonatomic,assign) NSUInteger showReferenceCount;
@@ -40,11 +41,18 @@
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    return touch.view == self.contentView || touch.view == self.contentView.lj_blurView;
+    if (self.isTouchBackgroundShouldHide) {
+        return touch.view == self.contentView || touch.view == self.contentView.lj_blurView;
+    }
+    if (self.isTouchSelfShouldHide){
+        return [touch.view isKindOfClass:[LJPopupView class]];
+    }
+    return NO;
+    
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)gesture{
-    if (self.isTouchShouldHide && !self.isAnimating){
+    if (!self.isAnimating) {
         [self hide];
     }
 }

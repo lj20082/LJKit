@@ -27,7 +27,7 @@
 
 - (void)resetConfig{
     self.animationDuration = 0.3f;
-    self.isTouchShouldHide = NO;
+    self.isTouchSelfShouldHide = self.isTouchBackgroundShouldHide = NO;
     self.bgColor = LJColorHexAlpha(0x0000008f);
     self.isAllowBlurEffect = NO;
     self.blurEffectStyle = UIBlurEffectStyleDark;
@@ -35,7 +35,8 @@
 
 - (void)updateConfig{
     [LJPopWindow sharedWindow].animationDuration = self.animationDuration;
-    [LJPopWindow sharedWindow].isTouchShouldHide = self.isTouchShouldHide;
+    [LJPopWindow sharedWindow].isTouchBackgroundShouldHide = self.isTouchBackgroundShouldHide;
+    [LJPopWindow sharedWindow].isTouchSelfShouldHide = self.isTouchSelfShouldHide;
     if(self.isAllowBlurEffect){
         [LJPopWindow sharedWindow].contentView.backgroundColor = nil;
         [[LJPopWindow sharedWindow].contentView lj_addBlurEffect:self.blurEffectStyle];

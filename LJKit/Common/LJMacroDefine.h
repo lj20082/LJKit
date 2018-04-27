@@ -36,6 +36,18 @@
 // 获取屏幕 宽度、高度
 #define LJ_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define LJ_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+// 判断是否是iPhoneX
+#define LJ_IsIPhoneX (CGSizeEqualToSize(CGSizeMake(375.f, 812.f), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(812.f, 375.f), [UIScreen mainScreen].bounds.size))
+// Status bar height.
+#define LJ_StatusBarHeight (LJ_IsIPhoneX ? 44.f : 20.f)
+// Navigation bar height.
+#define LJ_NavigationBarHeight  44.f
+// Tabbar safe bottom margin.
+#define LJ_TabbarSafeBottomMargin (LJ_IsIPhoneX ? 34.f : 0.f)
+// Status bar & navigation bar height.
+#define LJStatusBarAndNavigationBarHeight  (LJ_IsIPhoneX ? 88.f : 64.f)
+
+#define LJViewSafeAreInsets(view) ({UIEdgeInsets insets; if(@available(iOS 11.0, *)) {insets = view.safeAreaInsets;} else {insets = UIEdgeInsetsZero;} insets;})
 
 // 获取颜色，从hex color，eg. 0xff1233
 #define LJColorHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]

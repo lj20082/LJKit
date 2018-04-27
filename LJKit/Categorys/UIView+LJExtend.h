@@ -20,4 +20,17 @@
 
 - (void)lj_addBlurEffect:(UIBlurEffectStyle)style alpha:(CGFloat)alpha;
 
+#pragma mark - Frame
+
+@property (nonatomic) CGFloat lj_x;
+@property (nonatomic) CGFloat lj_y;
+@property (nonatomic) CGFloat lj_width;
+@property (nonatomic) CGFloat lj_height;
+@property (nonatomic) CGFloat lj_centerX;
+@property (nonatomic) CGFloat lj_centerY;
+@property (nonatomic) CGPoint lj_origin;
+@property (nonatomic) CGSize lj_size;
+- (CGFloat)lj_maxY;
+- (CGFloat)lj_maxX;
+
 @end
