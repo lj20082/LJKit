@@ -26,5 +26,7 @@
 - (CGFloat)lj_widthForFont:(UIFont *)font;
 // 字符串高度
 - (CGFloat)lj_heightForFont:(UIFont *)font width:(CGFloat)width;
+// url编码，返回NSURL,若对象为空则返回nil
+- (NSURL *)lj_urlEncode;
 
 @end

@@ -11,22 +11,18 @@
 
 @implementation NSString (LJExtend)
 
+// 苹果不建议使用stringByAddingPercentEscapesUsingEncoding 中文和后面字符 !*'();:@&=+$,/?%#[] 正常解码，适用于url或者参数中包含中文以及其它非法字符的情况，但不适用于参数包含保留字和其他特殊字符的情况。
+// 苹果建议 使用 stringByAddingPercentEncodingWithAllowedCharacters
+// 几种常用的NSCharacterSet：
+// URLFragmentAllowedCharacterSet  "#%<>[\]^`{|}
+// URLHostAllowedCharacterSet      "#%/<>?@\^`{|}
+// URLPasswordAllowedCharacterSet  "#%/:<>?@[\]^`{|}
+// URLPathAllowedCharacterSet      "#%;<>?[\]^`{|}
+// URLQueryAllowedCharacterSet    "#%<>[\]^`{|}
+// URLUserAllowedCharacterSet      "#%/:<>?@[\]^`
+
 - (NSString *)lj_stringByURLEncode{
-    if ([self respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) {
-        /**
-         AFNetworking/AFURLRequestSerialization.m
-         
-         Returns a percent-escaped string following RFC 3986 for a query string key or value.
-         RFC 3986 states that the following characters are "reserved" characters.
-         - General Delimiters: ":", "#", "[", "]", "@", "?", "/"
-         - Sub-Delimiters: "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "="
-         In RFC 3986 - Section 3.4, it states that the "?" and "/" characters should not be escaped to allow
-         query strings to include a URL. Therefore, all "reserved" characters with the exception of "?" and "/"
-         should be percent-escaped in the query string.
-         - parameter string: The string to be percent-escaped.
-         - returns: The percent-escaped string.
-         */
-        static NSString * const kAFCharactersGeneralDelimitersToEncode = @":#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4
+    static NSString * const kAFCharactersGeneralDelimitersToEncode = @"#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4 , does not include because when url  http: encode http%3A sdwebimage not work
         static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
         
         NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
@@ -48,20 +44,6 @@
             index += range.length;
         }
         return escaped;
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
-        NSString *encoded = (__bridge_transfer NSString *)
-        CFURLCreateStringByAddingPercentEscapes(
-                                                kCFAllocatorDefault,
-                                                (__bridge CFStringRef)self,
-                                                NULL,
-                                                CFSTR("!#$&'()*+,/:;=?@[]"),
-                                                cfEncoding);
-        return encoded;
-#pragma clang diagnostic pop
-    }
 }
 
 - (NSString *)lj_stringByURLDecode{
@@ -124,6 +106,16 @@
 - (CGFloat)lj_heightForFont:(UIFont *)font width:(CGFloat)width{
     CGSize size = [self sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping];
     return size.height;
+}
+
+- (NSURL *)lj_urlEncode{
+    if (self == nil || self == NULL) {
+        return nil;
+    }
+    if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
+        return nil;
+    }
+    return [NSURL URLWithString:[self lj_stringByURLEncode]];
 }
 
 @end

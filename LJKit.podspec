@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "LJKit"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.summary      = "A powerful iOS utility framework."
   s.homepage     = "https://github.com/lj20082/LJKit"
