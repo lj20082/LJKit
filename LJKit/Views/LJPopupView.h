@@ -22,8 +22,12 @@
 // blur类型
 @property (nonatomic,assign) UIBlurEffectStyle blurEffectStyle;
 
-- (void)show;
+- (void)showAnimate:(BOOL)animate;
 
+- (void)hideAnimate:(BOOL)animate;
+
+// 默认animate为YES
+- (void)show;
 - (void)hide;
 
 @end

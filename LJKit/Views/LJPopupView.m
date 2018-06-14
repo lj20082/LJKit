@@ -45,6 +45,17 @@
     }
 }
 
+- (void)showAnimate:(BOOL)animate{
+    [self updateConfig];
+    [[LJPopWindow sharedWindow].contentView addSubview:self];
+    [[LJPopWindow sharedWindow] showAnimate:animate];
+}
+
+- (void)hideAnimate:(BOOL)animate{
+    [self resetConfig];
+    [[LJPopWindow sharedWindow] hideAnimate:YES];
+}
+
 - (void)show{
     [self updateConfig];
     [[LJPopWindow sharedWindow].contentView addSubview:self];
