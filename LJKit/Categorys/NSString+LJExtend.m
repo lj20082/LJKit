@@ -109,10 +109,7 @@
 }
 
 - (NSURL *)lj_urlEncode{
-    if (self == nil || self == NULL) {
-        return nil;
-    }
-    if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
+    if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
         return nil;
     }
     return [NSURL URLWithString:[self lj_stringByURLEncode]];

@@ -11,7 +11,7 @@
 #import "LJPopupView.h"
 
 @interface LJPopWindow ()<UIGestureRecognizerDelegate>
-@property (nonatomic,assign) NSUInteger showReferenceCount;
+
 @end
 
 @implementation LJPopWindow
@@ -34,7 +34,6 @@
         gesture.delegate = self;
         [self addGestureRecognizer:gesture];
         self.contentView = [[UIView alloc] initWithFrame:frame];
-        _contentView.alpha = 0.0;
         [self.rootViewController.view addSubview:_contentView];
     }
     return self;
@@ -52,49 +51,61 @@
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)gesture{
-    if (!self.isAnimating) {
-        [self hide];
-    }
+    [self hide];
 }
 
 - (void)show{
-    if ( ++self.showReferenceCount > 1 ){
-        return;
-    }
-    self.hidden = NO;
-    [self makeKeyAndVisible];
-    self.isAnimating = YES;
-    [UIView animateWithDuration:self.animationDuration
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         self.contentView.alpha = 1.0f;
-                     } completion:^(BOOL finished) {
-                         if ( finished )
-                         {
-                             self.isAnimating = NO;
-                         }
-                     }];
+    [self showAnimate:YES];
 }
 
 - (void)hide{
-    if (--self.showReferenceCount > 0){
-        return;
+    [self hideAnimate:YES];
+}
+
+- (void)showAnimate:(BOOL)animate{
+    if (!self.hidden || self.isAnimating) return;
+    if (animate) {
+        self.contentView.alpha = 0.0f;
+        self.hidden = NO;
+        [self makeKeyAndVisible];
+        self.isAnimating = YES;
+        [UIView animateWithDuration:self.animationDuration
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.contentView.alpha = 1.0f;
+                         } completion:^(BOOL finished) {
+                            self.isAnimating = NO;
+                         }];
+    }else{
+        self.contentView.alpha = 1.0f;
+        self.hidden = NO;
+        [self makeKeyAndVisible];
     }
-    self.isAnimating = YES;
-    [UIView animateWithDuration:self.animationDuration
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         self.contentView.alpha = 0.0f;
-                     } completion:^(BOOL finished) {
-                         if ( finished ){
-                             self.hidden = YES;
-                             [[[UIApplication sharedApplication].delegate window] makeKeyWindow];
-                             self.isAnimating = NO;
-                             [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-                         }
-                     }];
+}
+
+- (void)hideAnimate:(BOOL)animate{
+    if(self.hidden || self.isAnimating) return;
+    if (animate) {
+        self.isAnimating = YES;
+        [UIView animateWithDuration:self.animationDuration
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.contentView.alpha = 0.0f;
+                         } completion:^(BOOL finished) {
+                             if ( finished ){
+                                 self.hidden = YES;
+                                 [[[UIApplication sharedApplication].delegate window] makeKeyWindow];
+                                 self.isAnimating = NO;
+                                 [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                             }
+                         }];
+    }else{
+        self.hidden = YES;
+        [[[UIApplication sharedApplication].delegate window] makeKeyWindow];
+        [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }
 }
 
 @end

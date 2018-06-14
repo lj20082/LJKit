@@ -10,6 +10,9 @@
 
 @interface UIView (LJExtend)
 
+
+#pragma mark Blur效果，使用UIVisualEffectView实现
+
 @property (readonly, nonatomic, strong) UIVisualEffectView *lj_blurView;
 
 // Blur效果，使用UIVisualEffectView实现
@@ -32,5 +35,10 @@
 @property (nonatomic) CGSize lj_size;
 - (CGFloat)lj_maxY;
 - (CGFloat)lj_maxX;
+
+#pragma mark - 截图
+
+- (UIImage *)lj_snapshotImage;
+- (UIImage *)lj_snapshotImageAfterScreenUpdates:(BOOL)afterUpdates;
 
 @end
