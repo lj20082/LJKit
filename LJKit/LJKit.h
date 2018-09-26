@@ -15,6 +15,7 @@
 #import "NSObject+LJExtend.h"
 #import "NSDate+LJExtend.h"
 #import "UIView+LJExtend.h"
+#import "UIDevice+LJDevice.h"
 #import "LJMacroDefine.h"
 #import "LJProgressView.h"
 #import "LJPopupView.h"
