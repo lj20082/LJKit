@@ -45,13 +45,13 @@
 (CGSizeEqualToSize(CGSizeMake(375.f, 812.f),[UIScreen mainScreen].bounds.size)||CGSizeEqualToSize(CGSizeMake(812.f, 375.f),[UIScreen mainScreen].bounds.size)||CGSizeEqualToSize(CGSizeMake(414.f, 896.f),[UIScreen mainScreen].bounds.size)||CGSizeEqualToSize(CGSizeMake(896.f, 414.f),[UIScreen mainScreen].bounds.size)):NO)
 
 // Status bar height.
-#define LJ_StatusBarHeight (isIPhoneXSeries ? 44.f : 20.f)
+#define LJ_StatusBarHeight (LJ_IsIPhoneXSeries ? 44.f : 20.f)
 // Navigation bar height.
 #define LJ_NavigationBarHeight  44.f
 // Tabbar safe bottom margin.
-#define LJ_TabbarSafeBottomMargin (isIPhoneXSeries ? 34.f : 0.f)
+#define LJ_TabbarSafeBottomMargin (LJ_IsIPhoneXSeries ? 34.f : 0.f)
 // Status bar & navigation bar height.
-#define LJStatusBarAndNavigationBarHeight  (isIPhoneXSeries ? 88.f : 64.f)
+#define LJStatusBarAndNavigationBarHeight  (LJ_IsIPhoneXSeries ? 88.f : 64.f)
 
 #define LJViewSafeAreInsets(view) ({UIEdgeInsets insets; if(@available(iOS 11.0, *)) {insets = view.safeAreaInsets;} else {insets = UIEdgeInsetsZero;} insets;})
 
