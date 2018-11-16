@@ -25,6 +25,7 @@
 		FC2F8441215B1E320030507B /* NSObject+LJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F8434215B1E320030507B /* NSObject+LJExtend.m */; };
 		FC2F8442215B1E320030507B /* NSTimer+LJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F8436215B1E320030507B /* NSTimer+LJExtend.m */; };
 		FC2F8445215B1F160030507B /* UIDevice+LJDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F8444215B1F160030507B /* UIDevice+LJDevice.m */; };
+		FC75C10A219EBC0100C5906A /* UIColor+LJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = FC75C109219EBC0100C5906A /* UIColor+LJExtend.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		FC2F8437215B1E320030507B /* NSFileManager+LJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+LJExtend.h"; sourceTree = "<group>"; };
 		FC2F8443215B1F160030507B /* UIDevice+LJDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+LJDevice.h"; sourceTree = "<group>"; };
 		FC2F8444215B1F160030507B /* UIDevice+LJDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+LJDevice.m"; sourceTree = "<group>"; };
+		FC75C108219EBC0100C5906A /* UIColor+LJExtend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+LJExtend.h"; sourceTree = "<group>"; };
+		FC75C109219EBC0100C5906A /* UIColor+LJExtend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LJExtend.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				FC2F842D215B1E320030507B /* UIView+LJExtend.m */,
 				FC2F8443215B1F160030507B /* UIDevice+LJDevice.h */,
 				FC2F8444215B1F160030507B /* UIDevice+LJDevice.m */,
+				FC75C108219EBC0100C5906A /* UIColor+LJExtend.h */,
+				FC75C109219EBC0100C5906A /* UIColor+LJExtend.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				FC2F843E215B1E320030507B /* NSFileManager+LJExtend.m in Sources */,
 				FC2F840B215B1E100030507B /* ViewController.m in Sources */,
 				FC2F843B215B1E320030507B /* NSDate+LJExtend.m in Sources */,
+				FC75C10A219EBC0100C5906A /* UIColor+LJExtend.m in Sources */,
 				FC2F8440215B1E320030507B /* NSString+LJExtend.m in Sources */,
 				FC2F8442215B1E320030507B /* NSTimer+LJExtend.m in Sources */,
 				FC2F843F215B1E320030507B /* NSData+LJExtend.m in Sources */,
@@ -397,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 637D759GBZ;
 				INFOPLIST_FILE = LJKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,6 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 637D759GBZ;
 				INFOPLIST_FILE = LJKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

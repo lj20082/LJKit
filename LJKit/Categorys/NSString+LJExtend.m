@@ -23,27 +23,53 @@
 
 - (NSString *)lj_stringByURLEncode{
     static NSString * const kAFCharactersGeneralDelimitersToEncode = @"#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4 , does not include because when url  http: encode http%3A sdwebimage not work
-        static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
+    static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
+    
+    NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
+    [allowedCharacterSet removeCharactersInString:[kAFCharactersGeneralDelimitersToEncode stringByAppendingString:kAFCharactersSubDelimitersToEncode]];
+    static NSUInteger const batchSize = 50;
+    
+    NSUInteger index = 0;
+    NSMutableString *escaped = @"".mutableCopy;
+    
+    while (index < self.length) {
+        NSUInteger length = MIN(self.length - index, batchSize);
+        NSRange range = NSMakeRange(index, length);
+        // To avoid breaking up character sequences such as 👴🏻👮🏽
+        range = [self rangeOfComposedCharacterSequencesForRange:range];
+        NSString *substring = [self substringWithRange:range];
+        NSString *encoded = [substring stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
+        [escaped appendString:encoded];
         
-        NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
-        [allowedCharacterSet removeCharactersInString:[kAFCharactersGeneralDelimitersToEncode stringByAppendingString:kAFCharactersSubDelimitersToEncode]];
-        static NSUInteger const batchSize = 50;
+        index += range.length;
+    }
+    return escaped;
+}
+
+- (NSString *)lj_stringByURLEncodeExceptString:(NSString *)exceptString{
+    static NSString * const kAFCharactersGeneralDelimitersToEncode = @"#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4 , does not include because when url  http: encode http%3A sdwebimage not work
+    static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
+    
+    NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
+    [allowedCharacterSet removeCharactersInString:[kAFCharactersGeneralDelimitersToEncode stringByAppendingString:kAFCharactersSubDelimitersToEncode]];
+    [allowedCharacterSet addCharactersInString:exceptString];
+    static NSUInteger const batchSize = 50;
+    
+    NSUInteger index = 0;
+    NSMutableString *escaped = @"".mutableCopy;
+    
+    while (index < self.length) {
+        NSUInteger length = MIN(self.length - index, batchSize);
+        NSRange range = NSMakeRange(index, length);
+        // To avoid breaking up character sequences such as 👴🏻👮🏽
+        range = [self rangeOfComposedCharacterSequencesForRange:range];
+        NSString *substring = [self substringWithRange:range];
+        NSString *encoded = [substring stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
+        [escaped appendString:encoded];
         
-        NSUInteger index = 0;
-        NSMutableString *escaped = @"".mutableCopy;
-        
-        while (index < self.length) {
-            NSUInteger length = MIN(self.length - index, batchSize);
-            NSRange range = NSMakeRange(index, length);
-            // To avoid breaking up character sequences such as 👴🏻👮🏽
-            range = [self rangeOfComposedCharacterSequencesForRange:range];
-            NSString *substring = [self substringWithRange:range];
-            NSString *encoded = [substring stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
-            [escaped appendString:encoded];
-            
-            index += range.length;
-        }
-        return escaped;
+        index += range.length;
+    }
+    return escaped;
 }
 
 - (NSString *)lj_stringByURLDecode{

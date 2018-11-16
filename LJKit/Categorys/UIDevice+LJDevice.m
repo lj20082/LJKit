@@ -8,6 +8,9 @@
 
 #import "UIDevice+LJDevice.h"
 #import <sys/utsname.h>
+#include <mach/mach.h>
+#include <sys/param.h>
+#include <sys/mount.h>
 
 @implementation UIDevice (LJDevice)
 
@@ -110,6 +113,26 @@
     if ([deviceModel isEqualToString:@"iPad7,4"]) return @"iPad PRO (10.5)";
     
     return deviceModel;
+}
+
++ (unsigned long long)lj_deviceTotalDiskSize{
+    struct statfs buf;
+    unsigned long long freeSpace = -1;
+    if (statfs("/var", &buf) >= 0)
+    {
+        freeSpace = (unsigned long long)(buf.f_bsize * buf.f_blocks);
+    }
+    return freeSpace;
+}
+
++ (unsigned long long)lj_deviceFreeDiskSize{
+    struct statfs buf;
+    unsigned long long freeLength = -1;
+    if (statfs("/var", &buf) >= 0)
+    {
+        freeLength = (unsigned long long)(buf.f_bsize * buf.f_bavail);
+    }
+    return freeLength;
 }
 
 @end

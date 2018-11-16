@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIDevice (LJDevice)
 
 + (NSString *)lj_deviceModel;
+// 获取设备总空间，单位byte
++ (unsigned long long)lj_deviceTotalDiskSize;
+// 获取设备空闲空间,单位byte
++ (unsigned long long)lj_deviceFreeDiskSize;
 
 @end
 

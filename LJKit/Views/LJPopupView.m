@@ -10,6 +10,7 @@
 #import "LJPopWindow.h"
 #import "LJMacroDefine.h"
 #import "UIView+LJExtend.h"
+#import "UIColor+LJExtend.h"
 
 @implementation LJPopupView
 
@@ -28,7 +29,7 @@
 - (void)resetConfig{
     self.animationDuration = 0.3f;
     self.isTouchSelfShouldHide = self.isTouchBackgroundShouldHide = NO;
-    self.bgColor = LJColorHexAlpha(0x0000008f);
+    self.bgColor = LJColorHexAlphaValue(0x000000, 0.56);
     self.isAllowBlurEffect = NO;
     self.blurEffectStyle = UIBlurEffectStyleDark;
 }

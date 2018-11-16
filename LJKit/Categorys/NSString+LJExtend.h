@@ -12,6 +12,8 @@
 
 // url编码
 - (NSString *)lj_stringByURLEncode;
+// 传入则不对标识字符编码
+- (NSString *)lj_stringByURLEncodeExceptString:(NSString *)exceptString;
 // url解码
 - (NSString *)lj_stringByURLDecode;
 // 返回小写的md5值
