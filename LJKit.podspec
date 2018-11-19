@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
     s1.source_files = 'LJKit/Categorys/*.{h,m}'
   end
   s.subspec 'Common' do |s2|
-    s2.platform = :ios, "8=9.0"
+    s2.platform = :ios, "9.0"
     s2.ios.deployment_target = '9.0'
     s2.public_header_files = 'LJKit/Common/*.h'
     s2.source_files = 'LJKit/Common/*.{h,m}'
@@ -42,6 +42,12 @@ Pod::Spec.new do |s|
     s3.public_header_files = 'LJKit/Views/*.h'
     s3.source_files = 'LJKit/Views/*.{h,m}'
   end
+  s.subspec 'Func' do |s4|
+    s4.platform = :ios, "9.0"
+    s4.ios.deployment_target = '9.0'
+    s4.public_header_files = 'LJKit/Func/*.h'
+    s4.source_files = 'LJKit/Func/*.{h,m}'
+  end
   s.libraries = 'z'
-  s.frameworks = 'UIKit', 'CoreFoundation' ,'QuartzCore', 'CoreGraphics', 'Accelerate'
+  s.frameworks = 'UIKit', 'CoreFoundation' ,'QuartzCore', 'CoreGraphics', 'Accelerate','Photos','AVFoundation','Contacts'
 end
