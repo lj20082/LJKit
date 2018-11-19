@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 获取颜色, hexString是十六进制字符串，eg. 支持@“#123456”、 @“0X123456”、 @“123456”三种格式
 #define LJColorHexString(hexString) [UIColor lj_colorWithHexString:hexString]
 // 获取颜色, hexString是十六进制字符串，eg. 支持@“#123456”、 @“0X123456”、 @“123456”三种格式, alpha 是CGFloat类型，eg. 0.5
-#define LJColorHexStringAlpha(hexString,alpha) [UIColor lj_colorWithHexString:hexString alpha:alpha]
+#define LJColorHexStringAlpha(hexString,A) [UIColor lj_colorWithHexString:hexString alpha:A]
 
 @interface UIColor (LJExtend)
 
