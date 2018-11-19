@@ -25,6 +25,7 @@
 		FC2F8441215B1E320030507B /* NSObject+LJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F8434215B1E320030507B /* NSObject+LJExtend.m */; };
 		FC2F8442215B1E320030507B /* NSTimer+LJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F8436215B1E320030507B /* NSTimer+LJExtend.m */; };
 		FC2F8445215B1F160030507B /* UIDevice+LJDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F8444215B1F160030507B /* UIDevice+LJDevice.m */; };
+		FC4E5AC321A24F490028B896 /* LJPermissionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4E5AC221A24F490028B896 /* LJPermissionManager.m */; };
 		FC75C10A219EBC0100C5906A /* UIColor+LJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = FC75C109219EBC0100C5906A /* UIColor+LJExtend.m */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,9 @@
 		FC2F8437215B1E320030507B /* NSFileManager+LJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+LJExtend.h"; sourceTree = "<group>"; };
 		FC2F8443215B1F160030507B /* UIDevice+LJDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+LJDevice.h"; sourceTree = "<group>"; };
 		FC2F8444215B1F160030507B /* UIDevice+LJDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+LJDevice.m"; sourceTree = "<group>"; };
+		FC4E5AC121A24F490028B896 /* LJPermissionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJPermissionManager.h; sourceTree = "<group>"; };
+		FC4E5AC221A24F490028B896 /* LJPermissionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJPermissionManager.m; sourceTree = "<group>"; };
+		FC4E5AC521A253FC0028B896 /* LJCategoryHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJCategoryHeaders.h; sourceTree = "<group>"; };
 		FC75C108219EBC0100C5906A /* UIColor+LJExtend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+LJExtend.h"; sourceTree = "<group>"; };
 		FC75C109219EBC0100C5906A /* UIColor+LJExtend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LJExtend.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,9 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				FC2F841D215B1E320030507B /* LJKit.h */,
-				FC2F841E215B1E320030507B /* Common */,
-				FC2F8420215B1E320030507B /* Views */,
 				FC2F8427215B1E320030507B /* Categorys */,
+				FC2F841E215B1E320030507B /* Common */,
+				FC4E5AC021A24E210028B896 /* Func */,
+				FC2F8420215B1E320030507B /* Views */,
 			);
 			name = LJKit;
 			path = ../../LJKit;
@@ -149,6 +154,7 @@
 		FC2F8427215B1E320030507B /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				FC4E5AC521A253FC0028B896 /* LJCategoryHeaders.h */,
 				FC2F842A215B1E320030507B /* NSData+LJExtend.h */,
 				FC2F8430215B1E320030507B /* NSData+LJExtend.m */,
 				FC2F8432215B1E320030507B /* NSDate+LJExtend.h */,
@@ -171,6 +177,15 @@
 				FC75C109219EBC0100C5906A /* UIColor+LJExtend.m */,
 			);
 			path = Categorys;
+			sourceTree = "<group>";
+		};
+		FC4E5AC021A24E210028B896 /* Func */ = {
+			isa = PBXGroup;
+			children = (
+				FC4E5AC121A24F490028B896 /* LJPermissionManager.h */,
+				FC4E5AC221A24F490028B896 /* LJPermissionManager.m */,
+			);
+			path = Func;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +269,7 @@
 				FC2F8416215B1E110030507B /* main.m in Sources */,
 				FC2F8408215B1E100030507B /* AppDelegate.m in Sources */,
 				FC2F843D215B1E320030507B /* UIView+LJExtend.m in Sources */,
+				FC4E5AC321A24F490028B896 /* LJPermissionManager.m in Sources */,
 				FC2F8441215B1E320030507B /* NSObject+LJExtend.m in Sources */,
 				FC2F8439215B1E320030507B /* LJProgressView.m in Sources */,
 				FC2F843A215B1E320030507B /* LJPopWindow.m in Sources */,

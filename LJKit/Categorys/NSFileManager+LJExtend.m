@@ -10,8 +10,7 @@
 
 @implementation NSFileManager (LJExtend)
 
-+ (long long)lj_fileSizeOfFile:(NSString *)filePath
-{
++ (long long)lj_fileSizeOfFile:(NSString *)filePath{
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:filePath]) { return 0; }
     NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:filePath error:nil];

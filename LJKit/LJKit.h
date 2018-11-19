@@ -9,17 +9,9 @@
 #define LJKit_h
 
 #import "LJMacroDefine.h"
-
-#import "NSTimer+LJExtend.h"
-#import "UIImage+LJExtend.h"
-#import "NSString+LJExtend.h"
-#import "NSData+LJExtend.h"
-#import "NSObject+LJExtend.h"
-#import "NSDate+LJExtend.h"
-#import "UIView+LJExtend.h"
-#import "UIDevice+LJDevice.h"
-#import "UIColor+LJExtend.h"
+#import "LJCategoryHeaders.h"
 #import "LJProgressView.h"
 #import "LJPopupView.h"
+#import "LJPermissionManager.h"
 
 #endif /* LJKit_h */
