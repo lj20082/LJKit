@@ -8,12 +8,12 @@
 
 Pod::Spec.new do |s|
   s.name         = "LJKit"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.summary      = "A powerful iOS utility framework."
   s.homepage     = "https://github.com/lj20082/LJKit"
   s.author             = { "673637753@qq.com" => "673637753@qq.com" }
-  s.social_media_url   = "http://muzijia.top/"
+  s.social_media_url   = "http://lj20082.github.io/"
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/lj20082/LJKit.git", :tag => s.version.to_s }
@@ -42,12 +42,12 @@ Pod::Spec.new do |s|
     s3.public_header_files = 'LJKit/Views/*.h'
     s3.source_files = 'LJKit/Views/*.{h,m}'
   end
-  s.subspec 'Func' do |s4|
+  s.subspec 'Tool' do |s4|
     s4.platform = :ios, "9.0"
     s4.ios.deployment_target = '9.0'
-    s4.public_header_files = 'LJKit/Func/*.h'
-    s4.source_files = 'LJKit/Func/*.{h,m}'
+    s4.public_header_files = 'LJKit/Tool/*.h'
+    s4.source_files = 'LJKit/Tool/*.{h,m}'
   end
   s.libraries = 'z'
-  s.frameworks = 'UIKit', 'CoreFoundation' ,'QuartzCore', 'CoreGraphics', 'Accelerate','Photos','AVFoundation','Contacts'
+  s.frameworks = 'UIKit', 'CoreFoundation' ,'QuartzCore', 'CoreGraphics', 'Accelerate'
 end

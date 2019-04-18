@@ -18,6 +18,5 @@
 #import "UIView+LJExtend.h"
 #import "UIDevice+LJDevice.h"
 #import "UIColor+LJExtend.h"
-#import "NSFileManager+LJExtend.h"
 
 #endif /* LJCategoryHeaders_h */

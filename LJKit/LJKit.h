@@ -12,6 +12,6 @@
 #import "LJCategoryHeaders.h"
 #import "LJProgressView.h"
 #import "LJPopupView.h"
-#import "LJPermissionManager.h"
+#import "LJToolsHeader.h"
 
 #endif /* LJKit_h */
