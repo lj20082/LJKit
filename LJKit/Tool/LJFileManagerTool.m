@@ -173,23 +173,20 @@
 }
 
 //移动文件
-+ (BOOL)moveFileFromPath:(NSString *)fromPath toPath:(NSString *)toPath
-{
++ (BOOL)moveFileFromPath:(NSString *)fromPath
+                  toPath:(NSString *)toPath {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:fromPath]) {
         NSLog(@"Error: fromPath Not Exist");
         return NO;
     }
-    if (![fileManager fileExistsAtPath:toPath]) {
-        NSLog(@"Error: toPath Not Exist");
-        return NO;
-    }
     NSString *headerComponent = [toPath stringByDeletingLastPathComponent];
-    if ([self creatFileWithPath:headerComponent]) {
-        return [fileManager moveItemAtPath:fromPath toPath:toPath error:nil];
-    } else {
-        return NO;
+    if(![fileManager fileExistsAtPath:headerComponent]) {
+        if(![fileManager createDirectoryAtPath:headerComponent withIntermediateDirectories:YES attributes:nil error:nil]){
+            return NO; //创建文件夹失败
+        }
     }
+    return [fileManager moveItemAtPath:fromPath toPath:toPath error:nil];
 }
 
 //拷贝文件
