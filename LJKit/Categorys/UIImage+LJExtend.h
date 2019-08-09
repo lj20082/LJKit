@@ -19,7 +19,7 @@
  @param color 颜色值
  @return 初始化的图片，默认大小1*1像素
  */
-+ (nullable UIImage *)lj_imageWithColor:(UIColor *)color;
++ (nullable UIImage *)lj_imageWithColor:(nullable UIColor *)color;
 
 /**
  通过颜色初始化图片
@@ -28,7 +28,7 @@
  @param size 图片大小
  @return 初始化后的图片
  */
-+ (UIImage *)lj_imageWithColor:(UIColor *)color size:(CGSize)size;
++ (nullable UIImage *)lj_imageWithColor:(nullable UIColor *)color size:(CGSize)size;
 
 
 /**
@@ -94,7 +94,7 @@
 
  @return 处理后的图片
  */
-- (UIImage *)lj_imageByFixOrientation;
+- (nullable UIImage *)lj_imageByFixOrientation;
 
 /**
  *  保持比例，放大或者缩小UIImage

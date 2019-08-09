@@ -17,10 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%ld",(long)[[NSDate date] lj_year]);
-    NSLog(@"%@",[UIDevice lj_deviceModel]);
-    NSLog(@"%@",NSStringFromCGSize([UIScreen mainScreen].bounds.size));
-    NSLog(@"%d",LJ_IsIPhoneXSeries);
+//    NSLog(@"%ld",(long)[[NSDate date] lj_year]);
+//    NSLog(@"%@",[UIDevice lj_deviceModel]);
+//    NSLog(@"%@",NSStringFromCGSize([UIScreen mainScreen].bounds.size));
+//    NSLog(@"%d",LJ_IsIPhoneXSeries);
 }
 
 

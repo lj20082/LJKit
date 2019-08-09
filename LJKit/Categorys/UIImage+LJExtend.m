@@ -11,11 +11,11 @@
 
 @implementation UIImage (LJExtend)
 
-+ (UIImage *)lj_imageWithColor:(UIColor *)color {
++ (nullable UIImage *)lj_imageWithColor:(nullable UIColor *)color {
     return [self lj_imageWithColor:color size:CGSizeMake(1, 1)];
 }
 
-+ (UIImage *)lj_imageWithColor:(UIColor *)color size:(CGSize)size {
++ (nullable UIImage *)lj_imageWithColor:(nullable UIColor *)color size:(CGSize)size {
     if (!color || size.width <= 0 || size.height <= 0) return nil;
     CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
@@ -94,7 +94,7 @@
     return image;
 }
 
-- (UIImage *)lj_imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize {
+- (nullable UIImage *)lj_imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize {
     size_t width = (size_t)CGImageGetWidth(self.CGImage);
     size_t height = (size_t)CGImageGetHeight(self.CGImage);
     CGRect newRect = CGRectApplyAffineTransform(CGRectMake(0., 0., width, height),
@@ -126,7 +126,7 @@
     return img;
 }
 
-- (UIImage *)_lj_flipHorizontal:(BOOL)horizontal vertical:(BOOL)vertical {
+- (nullable UIImage *)_lj_flipHorizontal:(BOOL)horizontal vertical:(BOOL)vertical {
     if (!self.CGImage) return nil;
     size_t width = (size_t)CGImageGetWidth(self.CGImage);
     size_t height = (size_t)CGImageGetHeight(self.CGImage);
@@ -157,22 +157,22 @@
     return img;
 }
 
-- (UIImage *)lj_imageByRotateLeft90{
+- (nullable UIImage *)lj_imageByRotateLeft90{
     
     return [self lj_imageByRotate:90 * M_PI / 180 fitSize:YES];
 
 }
 
-- (UIImage *)lj_imageByRotateRight90{
+- (nullable UIImage *)lj_imageByRotateRight90{
     return [self lj_imageByRotate:-90 * M_PI / 180 fitSize:YES];
 
 }
 
-- (UIImage *)lj_imageByRotate180{
+- (nullable UIImage *)lj_imageByRotate180{
     return [self _lj_flipHorizontal:YES vertical:YES];
 }
 
-- (UIImage *)lj_imageByFixOrientation {
+- (nullable UIImage *)lj_imageByFixOrientation {
     
     // No-op if the orientation is already correct
     if (self.imageOrientation == UIImageOrientationUp) return self;
@@ -252,7 +252,7 @@
     return img;
 }
 
-- (UIImage *)lj_scaledImageByWidth:(CGFloat)width{
+- (nullable UIImage *)lj_scaledImageByWidth:(CGFloat)width{
     UIGraphicsBeginImageContext(CGSizeMake(width, self.size.height * width / self.size.width));
     [self drawInRect:CGRectMake(0, 0, width, self.size.height * width / self.size.width)];
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -260,7 +260,7 @@
     return scaledImage;
 }
 
-- (UIImage *)lj_scaledImageByHeight:(CGFloat)height{
+- (nullable UIImage *)lj_scaledImageByHeight:(CGFloat)height{
     UIGraphicsBeginImageContext(CGSizeMake(self.size.width * height / self.size.height, height));
     [self drawInRect:CGRectMake(0, 0, self.size.width * height / self.size.height, height)];
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();

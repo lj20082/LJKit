@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 @interface NSDate (LJExtend)
 
 // 基本属性
@@ -52,3 +53,4 @@
 + (nullable NSDate *)lj_dateWithString:(NSString *)dateString format:(NSString *)format;
 
 @end
+NS_ASSUME_NONNULL_END

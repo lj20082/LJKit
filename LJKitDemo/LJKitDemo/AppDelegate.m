@@ -17,7 +17,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self test];
+    
     return YES;
+}
+
+- (void)test {
+    static int i = 3;
+    if(i-- > 0){
+        NSLog(@"%d",i);
+        [self test];
+    }
+    
 }
 
 

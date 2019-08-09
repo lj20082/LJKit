@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2319F5B222FD6885008CFBFB /* UIImage+LJQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2319F5B122FD6885008CFBFB /* UIImage+LJQRCode.m */; };
 		23C4FFF22268124D00A82DA4 /* LJFileManagerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C4FFF12268124D00A82DA4 /* LJFileManagerTool.m */; };
 		FC2F8408215B1E100030507B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F8407215B1E100030507B /* AppDelegate.m */; };
 		FC2F840B215B1E100030507B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F840A215B1E100030507B /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2319F5B022FD6885008CFBFB /* UIImage+LJQRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+LJQRCode.h"; sourceTree = "<group>"; };
+		2319F5B122FD6885008CFBFB /* UIImage+LJQRCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LJQRCode.m"; sourceTree = "<group>"; };
 		23C4FFF02268124D00A82DA4 /* LJFileManagerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJFileManagerTool.h; sourceTree = "<group>"; };
 		23C4FFF12268124D00A82DA4 /* LJFileManagerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJFileManagerTool.m; sourceTree = "<group>"; };
 		23C4FFF32268128900A82DA4 /* LJToolsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJToolsHeader.h; sourceTree = "<group>"; };
@@ -173,14 +176,16 @@
 				FC2F8431215B1E320030507B /* NSString+LJExtend.m */,
 				FC2F842C215B1E320030507B /* NSTimer+LJExtend.h */,
 				FC2F8436215B1E320030507B /* NSTimer+LJExtend.m */,
-				FC2F8433215B1E320030507B /* UIImage+LJExtend.h */,
-				FC2F842B215B1E320030507B /* UIImage+LJExtend.m */,
-				FC2F8435215B1E320030507B /* UIView+LJExtend.h */,
-				FC2F842D215B1E320030507B /* UIView+LJExtend.m */,
-				FC2F8443215B1F160030507B /* UIDevice+LJDevice.h */,
-				FC2F8444215B1F160030507B /* UIDevice+LJDevice.m */,
 				FC75C108219EBC0100C5906A /* UIColor+LJExtend.h */,
 				FC75C109219EBC0100C5906A /* UIColor+LJExtend.m */,
+				FC2F8443215B1F160030507B /* UIDevice+LJDevice.h */,
+				FC2F8444215B1F160030507B /* UIDevice+LJDevice.m */,
+				FC2F8433215B1E320030507B /* UIImage+LJExtend.h */,
+				FC2F842B215B1E320030507B /* UIImage+LJExtend.m */,
+				2319F5B022FD6885008CFBFB /* UIImage+LJQRCode.h */,
+				2319F5B122FD6885008CFBFB /* UIImage+LJQRCode.m */,
+				FC2F8435215B1E320030507B /* UIView+LJExtend.h */,
+				FC2F842D215B1E320030507B /* UIView+LJExtend.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				FC2F8440215B1E320030507B /* NSString+LJExtend.m in Sources */,
 				FC2F8442215B1E320030507B /* NSTimer+LJExtend.m in Sources */,
 				FC2F843F215B1E320030507B /* NSData+LJExtend.m in Sources */,
+				2319F5B222FD6885008CFBFB /* UIImage+LJQRCode.m in Sources */,
 				FC2F8438215B1E320030507B /* LJPopupView.m in Sources */,
 				FC2F8416215B1E110030507B /* main.m in Sources */,
 				FC2F8408215B1E100030507B /* AppDelegate.m in Sources */,

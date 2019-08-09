@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSObject (LJExtend)
 
 //判断字符串是否为空，为空的话会返回一个为YES的BOOL值 反之则返回NO
@@ -34,5 +36,6 @@
  */
 - (void)lj_removeAssociatedValues;
 
-
 @end
+
+NS_ASSUME_NONNULL_END
